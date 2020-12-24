@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Quiz App</title>
+</head>
+<body>
+    <div class="box-1 custom-box">
+        <h3>instructions</h3>
+        <p>Answer all:<span class="totalQuestions"> 5 </span></p>
+        <button type="button" class="start-btn">Start</button>
+    </div>
+
+
+    <div class="render">
+
+    </div>
+    <!-- <div class="quiz-box custom-box hide">
+        <div class="question-number">
+            Question 1 of 5
+        </div>
+        <div class="question-text">
+            
+        </div>
+        <div class="option-container">
+            <div class="option">True</div>
+            <div class="option">False</div>
+        </div> 
+
+       <div class="next-question-btn">
+            <button type="button" class="btn">Next</button>
+       </div> -->
+
+
+
+
+       
+        <!-- <div class="answer-indicator">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div> -->
+    </div>
+    <div class="result-box custom-box hide">
+        <h1>Quiz Results </h1>
+        <table>
+            <tr>
+                <td>Total Question</td>
+                <td><span class="total-question">5</span></td>
+            </tr>
+            <tr>
+                <td>attempt</td>
+                <td><span class="total-attempt">5</span></td>
+            </tr>
+            <tr>
+                <td>Correct</td>
+                <td><span class="total-correct">3</span></td>
+            </tr>
+            <tr>
+                <td>wrong</td>
+                <td><span class="total-wrong">1</span></td>
+            </tr>
+            <tr>
+                <td>Percentage</td>
+                <td><span class="percentage">60.00% </span></td>
+            </tr>
+            <tr>
+                <td>Your total Score</td>
+                <td><span class="total-score">3 / 5</span></td>
+            </tr>
+        </table>
+        <button type="button" class="btn">Try Again</button>
+        <button type="button" class="btn">Home</button>
+    </div>
+
+    <script src="question.js"></script>
+</body>
+</html>
