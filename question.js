@@ -1,15 +1,16 @@
 
 // Array of Objects
 $(document).ready(function () {
-    const questionCount = 0
-    const questions = []
+    let random = Math.floor(Math.random() * 10)
+    let points = 0
+    let questions = []
 
     $('.start-btn').on('click', function (e) {
         // alert('you clicked')
         $('.quiz-box').removeClass('hide')
         $('.box-1').addClass('hide')
         e.preventDefault();
-        
+
         let url = 'https://opentdb.com/api.php?amount=10&category=15&difficulty=medium&type=boolean'
         // let query = $('.start-btn').on('click', fetch(url));
         $.ajax({
@@ -19,17 +20,32 @@ $(document).ready(function () {
 
             beforeSend: function () {
                 $('.render').show();
-              },
+            },
 
             // complete: function () {
 
             // },
             success: function (response) {
                 let output = '';
-                // let currentquest = response.results;
-                console.log(response)
+                // console.log(response)
                 for (let result of response.results) {
-                    
+                    response.results.forEach(display) = {
+
+                    }
+                    function display(value, index, arr) {
+                        console.log(arr[i].question)
+                    }
+
+
+
+
+
+                    // response.results.map(question => {
+                    //     formattedQuestion = {
+                    //         question: response.results.questions
+                    //     }
+                    //     console.log(question)
+                    // })
                     output += `
     <div class="quiz-box custom-box ">
     <div class="question-number">
@@ -48,7 +64,7 @@ $(document).ready(function () {
    </div>
                     `
                 }
-            $('.render').html(output)
+                $('.render').html(output)
             }
         })
     })
