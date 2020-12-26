@@ -1,13 +1,3 @@
 # Quiz-app2
 
-
- // questions => {
-                //     console.log(response.results)
-                //     response.result.map(question => {
-                //         const formattedQuestion = {
-                //             question: questions.questions   
-                //         }
-                //         console.log(question)
-                        
-                //     })
-                // }
+https://codereview.stackexchange.com/questions/132397/prev-next-buttons-for-a-circular-list

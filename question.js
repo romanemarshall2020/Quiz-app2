@@ -1,9 +1,12 @@
-// Array of Objects
+
 $(document).ready(function() {
-	let randomNumber = Math.floor(Math.random() * 10);
+	// let randomNumber = Math.floor(Math.random() * 10);
 	let points = 0;
-    const questions = [];
-    const correct = []
+	// Array of Questions
+	const questions = [];
+	const correct = [];
+	const count = 0;
+	
 
 	let url = 'https://opentdb.com/api.php?amount=10&category=15&difficulty=medium&type=boolean';
 	// let query = $('.start-btn').on('click', fetch(url));
@@ -20,61 +23,66 @@ $(document).ready(function() {
 
 		// },
 		success: function(response) {
-            // click event
+			const length = questions.length
+			// click event
 			$('.start-btn').on('click', function(e) {
 				// removes hide class from quiz box, revealing it on the screen
-                $('.quiz-box').removeClass('hide');
-                //adds hide class to bix 1, making it disappear
+				$('.quiz-box').removeClass('hide');
+				//adds hide class to bix 1, making it disappear
 				$('.box-1').addClass('hide');
 				e.preventDefault();
 				for (let result of response.results) {
-                    // pushes questions into an array for later use
+					// pushes questions into an array for later use
                     questions.push(result.question);
-                    correct.push(result.correct_answer)
-                   
+                    // pushes correct anwer to question into correct for later use
+					correct.push(result.correct_answer);
 				}
-                console.log(questions[3]);
-                console.log(correct)
-                
-                
+				console.log(questions);
+				console.log(correct);
+				displayQuest();
+ 
 
-                
-
-				let output = '';
-				// console.log(response)
-				// for (let result of response.results) {
-				//     response.results.forEach(display) = {
-				//     }
-				//     function display(value, index, arr) {
-				//         console.log(arr[i].question)
-				//     }
-				// response.results.map(question => {
-				//     formattedQuestion = {
-				//         question: response.results.questions
-				//     }
-				//     console.log(question)
-				// })
-				                    output += `
-				    <div class="quiz-box custom-box ">
-				    <div class="question-number">
-
-				    </div>
-				    <div class="question-text">
-				    ${questions[1]}
-				    </div>
-				    <div class="option-container">
-				        <div class="option" value="true">True</div>
-				        <div class="option" value="false">False</div>
-				    </div>
-
-				   <div class="next-question-btn">
-				        <button type="button" class="btn">Next</button>
-				   </div>
-				                    `
-
-                                $('.render').html(output)
-                                console.log('')
+				function nextidx(idx = 0, length, direction) {
+                    $('.btn').on('click', function(e) {
+                        e.preventDefault();
+                        for (let i = 0; i < questions.length; i++) {
+                            number = count + questions[i] ++;
+                            return number
+                        }
+                    })
+				
+				}
+				nextidx();
 			});
+			function displayQuest(number) {
+				for (let i = 0; i < questions.length; i++) {
+					let output = '';
+					output += `
+     <div class="quiz-box custom-box  ">
+     <div class="question-number">
+                    ${count} of ${questions.length}
+     </div>
+     <div class="question-text">
+     ${questions[i]}
+     </div>
+     <div class="option-container">
+         <div class="option" value="true">True</div>
+         <div class="option" value="false">False</div>
+     </div>
+
+    <div class="next-question-btn">
+         <button onclick=nextQuestion type="button" class="btn">Next</button>
+    </div>
+                     `;
+                     
+                    //  console.log(totalquest)
+
+                    $('.render').html(output);
+                    
+                    
+				}
+			}
+			// displayQuest();
 		}
 	});
 });

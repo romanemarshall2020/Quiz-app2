@@ -25,6 +25,7 @@ body {
     content: '';
     clear: both;
     display: table;
+    
 }
 .custom-box.hide{
     display: none;
