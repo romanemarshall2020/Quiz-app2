@@ -51,12 +51,12 @@ body {
 font-weight: 500;
 }
 
-.box-1, .btn, .start-btn {
+.box-1, .btn, .start-btn, .next-btn {
     margin-top: 20px;
 
 }
 
-.btn, .start-btn {
+.btn, .start-btn, .next-btn  {
   padding: 15px 45px;
   background-color: chartreuse;
   color: blue;
@@ -106,7 +106,7 @@ font-weight: 500;
     text-transform: capitalize;
      
 }
-.quiz-box, .btn, .start-btn{
+.quiz-box, .btn, .start-btn, .next-btn{
     margin: 15px 0;
 
 }
@@ -150,7 +150,7 @@ font-weight: 500;
     text-align: left;
     font-style: 18px;
 }
-.result-box, .btn, .start-btn{
+.result-box, .btn, .start-btn, .next-btn{
     margin-right: 20px;
 
 }

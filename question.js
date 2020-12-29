@@ -3,8 +3,9 @@ $(document).ready(function() {
 	let points = 0;
 	// Array of Questions
 	const questions = [];
+	// const length = questions.length;
 	const correct = [];
-	const count = 0;
+	let count = 0;
 
 	let url = 'https://opentdb.com/api.php?amount=10&category=15&difficulty=medium&type=boolean';
 	// let query = $('.start-btn').on('click', fetch(url));
@@ -13,13 +14,13 @@ $(document).ready(function() {
 		method: 'GET',
 		datatype: 'json',
 
-		beforeSend: function() {
-			$('.render').show();
-		},
+		// beforeSend: function() {
+		// 	$('.render').show();
+		// },
 
 		
 		success: function(response) {
-			const length = questions.length;
+			
 			// click event
 			$('.start-btn').on('click', function(e) {
 				// removes hide class from quiz box, revealing it on the screen
@@ -45,57 +46,58 @@ $(document).ready(function() {
 	});
 
 
-	function displayQuest(nextIdx) {
+	function displayQuest() {
 
-		for (let i = 0; i < questions.length; i++) {
-			let output = '';
-			output += `
-<div class="quiz-box custom-box  ">
-<div class="question-number">
-			${count} of ${questions.length}
-</div>
-<div class="question-text">
-${questions[i]}
-</div>
-<div class="option-container">
- <div class="option" value="true">True</div>
- <div class="option" value="false">False</div>
-</div>
-
-<div class="next-question-btn">
- <button onclick="nextIdx('.btn')" type="button" class="btn">Next</button>
-</div>
-			 `;
-
-			$('.render').html(output);
-		
+		for (let i = 0; i <= questions.length; i++) {
+			// let output = ''
+			// output += 
+			questions.forEach(element => {
+				$('.question-text').html(`${element}`)
+				$('.question-number').html(`${count} of ${questions.length}`)
+			});
 			
+
+			
+			
+// 			let output = '';
+// 			output += `
+// <div class="quiz-box custom-box  ">
+// <div class="question-number">
+// 			${count} of ${questions.length}
+// </div>
+// <div class="question-text">
+// ${questions[i]}
+// </div>
+// <div class="option-container">
+//  <div class="option" value="true">True</div>
+//  <div class="option" value="false">False</div>
+// </div>
+
+// <div class="next-question-btn">
+//  <button onclick="nextIdx('Next')" type="button" class="btn" id="next-btn">Next</button>
+// </div>
+// 			 `;
+		
 		}
 		
+	}
+	
+
+	// function nextQuest () {
 		
-	}
+		
+	// }
+	$('.next-btn').on('click', function() {
+		for (let i = 0; i < questions.length; i++){
+		if (count < questions.length) {
+			// print.html = questions[count];
+			count++
 
+			$('.question-text').html(`${questions[count]}`)
+			console.log(questions[count])
 
-	function nextIdx(idx = 0, length, direction) {
-		switch (direction) {
-			case 'Next': return (idx + 1) % length
-			default: return idx
 		}
-	}
-
-
-	let idx
-	function newIndexRender(direction) {
-		idx = nextIdx(idx, length, direction);
-		$('.question-text').html(questions[idx])
-	} 
-
-	newIndexRender()
-
-
-
-	
-	
-	
-	
+		}
+		
+	})
 });
